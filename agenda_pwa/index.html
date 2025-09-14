@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contactos PWA</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+<script>
+    // Check that service workers are supported
+    if ("serviceWorker" in navigator){
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("./sw.js");
+        });
+    }
+</script>
+<body>
+    <header>
+        <h1>
+            Agenda de Contactos PWA
+        </h1>
+        <form id="new-task-form">
+            <input type="text" id="new-task-input1" placeholder="Nombre"/>
+            <input type="text" id="new-task-input2" placeholder="Telefono"/>
+            <input type="text" id="new-task-input3" placeholder="Correo"/>
+            <input type="submit" name="new-task-submit" id="new-task-submit" value="Agregar Contacto"/>
+        </form>
+    </header>
+    <main>
+        <section class="task-list">
+            <h2>
+                Contactos
+            </h2>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Telefono
+                            </th>
+                            <th>
+                                Correo
+                            </th>
+                            <th>
+                                Accion
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tasks">
+
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/dexie/4.2.0/dexie.min.js"
+        integrity="sha512-LuXLH9xON6/aAGYxi4Z1Dx8588Z80gY3iMmGtUlYmblUc1ulC/cGHuANXIvm8fnIWp5ShUk2MRBIWylGguXF9g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    >
+
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
