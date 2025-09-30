@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Repaso JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 style="color: white;">
+        Ejercicios de Repaso JavaScript
+    </h1>
+    <!-- Programa 1 -->
+    <h2 style="color: white;">
+        Programa 1: Juego Piedra, Papel o Tijera
+    </h2>
+    <p style="color: white;">
+        Elige una opci&oacute;n:
+    </p>
+    <button onclick="jugar(1, 'Piedra');">
+        Piedra
+    </button>
+    <button onclick="jugar(2, 'Papel')">
+        Papel
+    </button>
+    <button onclick="jugar(3, 'Tijera')">
+        Tijera
+    </button>
+    <div id="resultado1" style="color: white;">
+
+    </div>
+    <!-- Programa 2 -->
+    <h2 style="color: white;">
+        Programa 2: Calculadora de Edad
+    </h2>
+    <p style="color: white;">
+        Introduce tu fecha de nacimiento:
+    </p>
+    <input type="date" id="fechaNacimiento"/>
+    <button onclick="calcularEdad();">
+        Calcular
+    </button>
+    <div id="resultado2" style="color: white;">
+
+    </div>
+    <!-- Programa 3 -->
+    <h2 style="color: white;">
+        Programa 3: Arreglo de números aleatorios
+    </h2>
+    <button onclick="generar();">
+        Generar N&uacute;meros
+    </button>
+    <div id="resultado3" style="color: white;">
+
+    </div>
+    <!-- Programa 4 -->
+    <h2 style="color: white;">
+        Programa 4: JSON Placeholder API
+    </h2>
+    <button onclick="cargarUsuarios();">
+        Cargar Usuarios
+    </button>
+    <div id="usuarios">
+
+    </div>
+    <h3 style="color: white;">
+        Buscar por Username
+    </h3>
+    <input type="text" id="usernameInput" placeholder="Usuario"/>
+    <button onclick="buscarUsuario();">
+        Buscar
+    </button>
+    <div id="resultado4" style="color: white;">
+
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
