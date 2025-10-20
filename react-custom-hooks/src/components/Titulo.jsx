@@ -3,7 +3,9 @@ import React from "react";
 const Titulo = () => {
     return(
         <>
-            Calculadora de Resistencias
+            <h1 className="card text-center py-4">
+                To - Do
+            </h1>
         </>
     );
 }
