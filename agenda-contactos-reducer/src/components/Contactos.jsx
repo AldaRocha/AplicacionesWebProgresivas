@@ -32,22 +32,35 @@ const Contactos = () => {
     // Creamos el reducer pasándole el ContactosReducer y un initial state
     // const [state, dispatch] = useReducer(ContactosReducer, contactos);
     const [state, dispatch] = useReducer(ContactosReducer, [], init);
-
     const [formView, setFormView] = useState(false);
+    const [contactoEditar, setContactoEditar] = useState(null);
 
     useEffect(() => {
         localStorage.setItem("contactos", JSON.stringify(state));
     }, [state]);
 
+    const MostrarVista = () => {
+        if (formView){
+            setContactoEditar(null);
+        }
+        setFormView(!formView)
+    }
+
+    const HandlePrepararEdicion = (id) => {
+        const contacto = state.find(c => c.id === id);
+        setContactoEditar(contacto);
+        setFormView(true);
+    }
+
     return(
         <div className="container mt-3">
-            <button className="btn btn-success" onClick={ () => setFormView(!formView) }>
+            <button className="btn btn-success" onClick={ MostrarVista }>
                 { !formView ? "+ Agregar Contacto" : "- Cerrar Formulario" }
             </button>
             {
-                formView && <Formulario dispatch={ dispatch }/>
+                formView && <Formulario dispatch={ dispatch } MostrarVista={ MostrarVista } contactoEditar={ contactoEditar } setContactoEditar={ setContactoEditar }/>
             }
-            <TablaContactos contactos={ state } dispatch={ dispatch }/>
+            <TablaContactos contactos={ state } dispatch={ dispatch } HandlePrepararEdicion={ HandlePrepararEdicion }/>
         </div>
     );
 }
